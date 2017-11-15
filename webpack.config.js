@@ -4,6 +4,7 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin =require('extract-text-webpack-plugin');
 
 const isDebug = !process.argv.includes('--release');
+const isVerbose = process.argv.includes('--verbose');
 
 module.exports = {
   devtool: '#inline-source-map',
@@ -11,8 +12,24 @@ module.exports = {
     'docs.js': [path.resolve(__dirname, './docs/index.jsx')]
   },
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: '[name]',
+    path: path.join(__dirname, 'lib'),
+    library: "ReactHighlight",
+    filename: 'index.js',
+    libraryTarget: 'umd',
+  },
+  externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -107,13 +124,18 @@ module.exports = {
       }
     ],
   },
-  // postcss: [ autoprefixer({ browsers: ['last 2 version'] }) ],
-  // resolve : {
-  //   alias: {
-
-  //   },
-  //   extensions: ['', '.js', '.jsx']
-  // },
+  stats: {
+    cached: isVerbose,
+    cachedAssets: isVerbose,
+    chunks: isVerbose,
+    chunkModules: isVerbose,
+    colors: true,
+    hash: isVerbose,
+    modules: isVerbose,
+    reasons: isDebug,
+    timings: true,
+    version: isVerbose,
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/vertx/),
