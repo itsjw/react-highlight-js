@@ -1,5 +1,5 @@
 {
-  "name": "react-highlight-js",
+  "name": "dd-react-highlight-js",
   "version": "0.12.0",
   "description": "React component for syntax highlighting",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GalaxyTeam/react-highlight-js.git"
+    "url": "https://github.com/GalaxyTeam/dd-react-highlight-js.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "DIDI SH FE Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GalaxyTeam/react-highlight-js.git"
+    "url": "https://github.com/GalaxyTeam/dd-react-highlight-js.git"
   },
-  "homepage": "https://github.com/GalaxyTeam/react-highlight-js",
+  "homepage": "https://github.com/GalaxyTeam/dd-react-highlight-js",
   "dependencies": {
     "highlight.js": "^9.11.0",
     "react": "^16.1.1",
